@@ -1,103 +1,194 @@
 # 🎬 MovieFlix API
 
-Welcome to the **MovieFlix API** — a RESTful API for a movie review platform, allowing users to explore movies, submit reviews, and discover top-rated content.
-## 📌 Base URL
+Welcome to **MovieFlix API**, a powerful and developer-friendly RESTful API designed for a movie review platform. With MovieFlix, users can discover movies, submit reviews, and interact with a catalog of top-rated films.
 
-https://api.movieflix.com/v1
-> Note: This is a placeholder. Replace with your own mock server or deployed endpoint if needed.
+> 📘 This project is built as a backend demonstration for REST API design, secure authentication using JWT, and clean documentation practices.
+
+---
+
+## 📁 Table of Contents
+
+- [🚀 Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📦 Installation & Setup](#-installation--setup)
+- [🔐 Authentication](#-authentication)
+- [📡 API Endpoints Overview](#-api-endpoints-overview)
+- [📄 Full API Documentation](#-full-api-documentation)
+- [🧠 Project Purpose](#-project-purpose)
+- [🧪 Testing the API](#-testing-the-api)
+- [📎 License](#-license)
+
+---
+
+## 🚀 Features
+
+✅ Browse Movies  
+✅ Submit Movie Reviews  
+✅ Like/Dislike Reviews  
+✅ View Top Rated Content  
+✅ JWT-based User Authentication  
+✅ Filter/Search Movies  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend**: Node.js / Spring Boot (choose one as per your actual setup)  
+- **Database**: MongoDB / PostgreSQL  
+- **Authentication**: JWT (JSON Web Token)  
+- **Hosting**: Render / Heroku / AWS  
+- **Tools**: Postman for testing, GitHub for version control
+
+---
+
+## 📦 Installation & Setup
+
+Follow these steps to run the project locally:
+
+### Prerequisites
+- Node.js / Java (depending on backend)
+- npm / Maven
+- MongoDB / PostgreSQL setup (or use a mock server)
+- Postman (optional for testing)
+
+### Steps
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/movieflix-api.git
+   cd movieflix-api
+
+2. **Install dependencies**
+   - For Node.js:
+     ```bash
+     npm install
+     ```
+   - For Spring Boot:
+     ```bash
+     mvn install
+     ```
+
+3. **Run the project**
+   - For Node.js:
+     ```bash
+     npm start
+     ```
+   - For Spring Boot:
+     ```bash
+     ./mvnw spring-boot:run
+     ```
+
+4. **Access the API**
+   - Open your browser or use Postman to access the API:
+     ```bash
+     http://localhost:8080/api/v1/
+     ```
+   - Use JWT for authorization:
+     ```bash
+     Authorization: Bearer <your_token_here>
+     ```
+
+5. **Test the endpoint**
+   - You can use `curl` to test the `/movies` endpoint:
+     ```bash
+     curl -X GET http://localhost:8080/api/v1/movies
+     ```
+
+---
 
 ## 🔐 Authentication
 
-Most endpoints are public, but **creating reviews, liking reviews, and submitting movies** require **JWT authentication**.
+This API uses **JWT (JSON Web Token)** for user authentication. You will need to register a user and then log in to receive a JWT token.
 
-### 🛂 How to Authenticate
+### Steps for Authentication:
 
-Send the JWT token in the `Authorization` header:
+1. **Register a new user:**
+   - Endpoint: `POST /api/v1/auth/register`
+   - Request body:
+     ```json
+     {
+       "username": "yourUsername",
+       "email": "yourEmail@example.com",
+       "password": "yourPassword"
+     }
+     ```
 
-Authorization: Bearer <your_token_here>
-## 🧭 Endpoints
+2. **Login to get the token:**
+   - Endpoint: `POST /api/v1/auth/login`
+   - Request body:
+     ```json
+     {
+       "username": "yourUsername",
+       "password": "yourPassword"
+     }
+     ```
+   - Response (JWT Token):
+     ```json
+     {
+       "token": "yourJWTtokenHere"
+     }
+     ```
 
-### 1. 🎥 Get All Movies
+3. **Use the token for authorization:**
+   - Add the token to the `Authorization` header for subsequent API requests:
+     ```bash
+     Authorization: Bearer <your_token_here>
+     ```
 
-**Endpoint:** `GET /movies`  
-**Description:** Retrieve a list of all movies.
+---
 
-#### ✅ Response:
+## 📡 API Endpoints Overview
 
-[ 
-  { 
-    "id": 101, 
-    "title": "Inception", 
-    "genre": "Sci-Fi", 
-    "releaseYear": 2010, 
-    "rating": 4.8 
-  }, 
-  { 
-    "id": 102, 
-    "title": "The Matrix", 
-    "genre": "Sci-Fi", 
-    "releaseYear": 1999, 
-    "rating": 4.9 
-  } 
-]
+Below is a summary of the main API endpoints available:
 
-## ⚠️ Error Handling
+| HTTP Method | Endpoint                            | Description                                       |
+|-------------|-------------------------------------|---------------------------------------------------|
+| GET         | `/api/v1/movies`                    | Retrieve a list of movies                        |
+| GET         | `/api/v1/movies/{id}`               | Retrieve detailed information about a specific movie |
+| POST        | `/api/v1/reviews`                   | Submit a movie review                            |
+| GET         | `/api/v1/reviews/{movieId}`         | View reviews for a specific movie                |
+| POST        | `/api/v1/likes`                     | Like a review                                    |
+| POST        | `/api/v1/dislikes`                  | Dislike a review                                 |
 
-All failed requests will return standard error formats:
+---
 
-#### Sample Error Response:
+## 📄 Full API Documentation
 
-{ 
-  "error": "Invalid token or expired session" 
-}
+For a detailed breakdown of each endpoint, including request and response formats, error codes, and example responses, please refer to the full API documentation at: 
 
-| Code | Meaning              |
-|------|----------------------|
-| 400  | Bad Request          |
-| 401  | Unauthorized         |
-| 404  | Not Found            |
-| 500  | Internal Server Error |
+**[Full API Documentation](http://localhost:8080/api-docs)**
 
-## 📦 Tech Stack (Assumed Backend)
-- **Backend:** Node.js / Spring Boot
-- **Database:** MongoDB / PostgreSQL
-- **Authentication:** JWT
-- **Hosting:** Render / Heroku / AWS
+---
 
-## 🚀 Sample Usage
+## 🧠 Project Purpose
 
-### Get Movies (cURL)
+MovieFlix API is designed to demonstrate how to build a RESTful API using JWT authentication and clean code practices. It serves as a useful platform for learning how to implement CRUD operations, secure authentication, and interactive features like liking/disliking content.
 
-curl -X GET https://api.movieflix.com/v1/movies
+---
 
-### Submit Review (cURL)
+## 🧪 Testing the API
 
-curl -X POST https://api.movieflix.com/v1/reviews \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"movieId": 101, "rating": 5, "comment": "Amazing!"}'
+You can test the API using tools like **Postman** or **curl**. Below are some examples:
 
-## 📚 Summary
+1. **List movies:**
+   ```bash
+   curl -X GET http://localhost:8080/api/v1/movies
 
-| Feature        | Supported |
-|----------------|-----------|
-| Browse Movies  | ✅        |
-| Submit Reviews | ✅        |
-| Get Top Rated  | ✅        |
-| User Auth      | ✅        |
-| Search & Filters | ✅      |
+2.**Submit a movie review:** 
+   ```bash
+curl -X POST http://localhost:8080/api/v1/reviews -H "Authorization: Bearer <your_token_here>" -d '{"movieId": 1, "review": "Amazing movie!"}'
+```
 
-## 🧠 About the Project
-
-MovieFlix API is part of a personal side project to demonstrate API design and documentation skills. This fictional API is designed to mimic real-world platforms like IMDb or Letterboxd and showcases best practices in RESTful API design and developer experience.
-
-##📎 License
-
-This project is licensed for educational and personal portfolio use only.
-Not affiliated with or endorsed by IMDb, Letterboxd, or any real movie service.
+3.**Like a review:**
+```bash
+curl -X POST http://localhost:8080/api/v1/likes -H "Authorization: Bearer <your_token_here>" -d '{"reviewId": 123}'
+```
 
 ## 📎 License
 
-This project is licensed for educational and personal portfolio use only.
-Not affiliated with or endorsed by IMDb, Letterboxd, or any real movie service.
+### Breakdown of Changes:
+- **Authentication Section**: Explained the registration and login process, including token retrieval and usage.
+- **API Endpoints Overview**: Provided a table with the HTTP methods and descriptions of endpoints.
+- **Full API Documentation Link**: Added a placeholder for the full API documentation link.
+- **Testing the API**: Added examples for how to test endpoints using `curl`.
 
+This completes your README in a continuous and structured way, providing all the necessary details.
