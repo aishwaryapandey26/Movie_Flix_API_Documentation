@@ -1,0 +1,53 @@
+# 🎬 MovieFlix API - User Guide
+
+Welcome to the **MovieFlix API**! This guide will walk you through using the API to interact with movies, submit reviews, like reviews, and more. It's designed to be simple and straightforward for developers looking to integrate or use MovieFlix for their movie-related applications.
+
+---
+
+## 📁 Table of Contents
+
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setting Up](#setting-up)
+- [Authentication](#authentication)
+- [API Endpoints](#api-endpoints)
+  - [List Movies](#list-movies)
+  - [Submit a Movie Review](#submit-a-movie-review)
+  - [Like a Review](#like-a-review)
+  - [Search for Movies](#search-for-movies)
+  - [View Top Rated Movies](#view-top-rated-movies)
+- [Error Handling](#error-handling)
+- [Testing the API](#testing-the-api)
+- [Contact and Support](#contact-and-support)
+
+---
+
+## Introduction
+
+**MovieFlix API** is a robust RESTful API that allows users to interact with a collection of movies. You can discover movies, submit reviews, like reviews, and search for movies. It's designed to showcase secure authentication using JWT and simple API interaction for developers.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin using the **MovieFlix API**, ensure you have the following:
+
+- **Node.js / Java** installed on your machine (depending on the backend choice)
+- **MongoDB / PostgreSQL** setup (or use a mock server for testing)
+- **Postman** (optional for testing)
+
+### Setting Up
+
+1. **Clone the Repository:**
+   Start by cloning the MovieFlix API repository from GitHub to your local machine:
+   ```bash
+   git clone https://github.com/your-username/movieflix-api.git
+   cd movieflix-api
+
+2. **Install Dependencies:**
+   Depending on your backend setup, run the appropriate command to install the necessary dependencies:
+```bash
+npm install  # 
