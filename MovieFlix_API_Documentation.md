@@ -1,10 +1,10 @@
-# 🎬 MovieFlix API Documentation
+#  MovieFlix API Documentation
 
 Welcome to the **MovieFlix API** — a RESTful API for a movie review platform, allowing users to explore movies, submit reviews, and discover top-rated content.
 
 ---
 
-## 📌 Base URL
+##  Base URL
 
 https://api.movieflix.com/v1
 
@@ -12,11 +12,11 @@ https://api.movieflix.com/v1
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 Most endpoints are public, but **creating reviews, liking reviews, and submitting movies** require **JWT authentication**.
 
-### 🛂 How to Authenticate
+###  How to Authenticate
 
 Send the JWT token in the `Authorization` header:
 
@@ -24,14 +24,14 @@ Authorization: Bearer <your_token_here>
 
 ---
 
-## 🧭 Endpoints
+##  Endpoints
 
-### 1. 🎥 Get All Movies
+### 1.  Get All Movies
 
 **Endpoint:** `GET /movies`  
 **Description:** Retrieve a list of all movies.
 
-#### ✅ Response:
+####  Response:
 
 [ 
   { 
@@ -52,12 +52,12 @@ Authorization: Bearer <your_token_here>
 
 ---
 
-### 2. 🧾 Get Movie Details
+### 2.  Get Movie Details
 
 **Endpoint:** `GET /movies/{id}`  
 **Description:** Get full information about a specific movie by its ID.
 
-#### ✅ Response:
+####  Response:
 
 { 
   "id": 101, 
@@ -77,16 +77,16 @@ Authorization: Bearer <your_token_here>
 
 ---
 
-### 3. ✍️ Submit a Review
+### 3.  Submit a Review
 
 **Endpoint:** `POST /reviews`  
 **Description:** Add a review to a movie. Requires authentication.
 
-#### 🛂 Authentication Required:
+####  Authentication Required:
 
 Authorization: Bearer <token>
 
-#### 📨 Request Body:
+####  Request Body:
 
 { 
   "movieId": 101, 
@@ -94,7 +94,7 @@ Authorization: Bearer <token>
   "comment": "Absolutely loved it!" 
 }
 
-#### ✅ Response:
+####  Response:
 
 { 
   "message": "Review submitted successfully" 
@@ -102,12 +102,12 @@ Authorization: Bearer <token>
 
 ---
 
-### 4. 🏆 Get Top Rated Movies
+### 4.  Get Top Rated Movies
 
 **Endpoint:** `GET /movies/top-rated`  
 **Description:** Fetch a list of top 10 movies based on user reviews.
 
-#### ✅ Response:
+####  Response:
 
 [ 
   { 
@@ -122,12 +122,12 @@ Authorization: Bearer <token>
 
 ---
 
-### 5. 🧑 Create a User Account
+### 5.  Create a User Account
 
 **Endpoint:** `POST /users/signup`  
 **Description:** Create a new MovieFlix user account.
 
-#### 📨 Request Body:
+####  Request Body:
 
 { 
   "username": "janedoe", 
@@ -135,7 +135,7 @@ Authorization: Bearer <token>
   "password": "SecurePass123" 
 }
 
-#### ✅ Response:
+####  Response:
 
 { 
   "message": "User registered successfully" 
@@ -143,19 +143,19 @@ Authorization: Bearer <token>
 
 ---
 
-### 6. 🔐 User Login
+### 6.  User Login
 
 **Endpoint:** `POST /users/login`  
 **Description:** Login and receive JWT token.
 
-#### 📨 Request Body:
+####  Request Body:
 
 { 
   "email": "janedoe@example.com", 
   "password": "SecurePass123" 
 }
 
-#### ✅ Response:
+####  Response:
 
 { 
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", 
@@ -164,7 +164,7 @@ Authorization: Bearer <token>
 
 ---
 
-## ⚠️ Error Handling
+##  Error Handling
 
 All failed requests will return standard error formats:
 
@@ -183,7 +183,7 @@ All failed requests will return standard error formats:
 
 ---
 
-## 📦 Tech Stack (Assumed Backend)
+##  Tech Stack (Assumed Backend)
 - **Backend:** Node.js / Spring Boot
 - **Database:** MongoDB / PostgreSQL
 - **Authentication:** JWT
@@ -191,7 +191,7 @@ All failed requests will return standard error formats:
 
 ---
 
-## 🚀 Sample Usage
+##  Sample Usage
 
 ### Get Movies (cURL)
 
@@ -206,24 +206,24 @@ curl -X POST https://api.movieflix.com/v1/reviews \
 
 ---
 
-## 📚 Summary
+##  Summary
 
 | Feature        | Supported |
 |----------------|-----------|
-| Browse Movies  | ✅        |
-| Submit Reviews | ✅        |
-| Get Top Rated  | ✅        |
-| User Auth      | ✅        |
-| Search & Filters | ✅      |
+| Browse Movies  | yes       |
+| Submit Reviews | yes       |
+| Get Top Rated  | yes       |
+| User Auth      | yes       |
+| Search & Filters | yes     |
 
 ---
 
-## 🧠 About the Project
+##  About the Project
 
 MovieFlix API is part of a personal side project to demonstrate API design and documentation skills. This fictional API is designed to mimic real-world platforms like IMDb or Letterboxd and showcases best practices in RESTful API design and developer experience.
 
 ---
 
-## 📎 License
+##  License
 
 This API is for educational purposes only. Not affiliated with any real movie platforms.
